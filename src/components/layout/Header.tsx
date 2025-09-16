@@ -10,9 +10,10 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { LogOut, Settings, User } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
+import { Link } from "react-router-dom";
 
 export const Header = () => {
-  const { profile, signOut } = useAuth();
+  const { profile, signOut, hasAnyRole } = useAuth();
 
   const getRoleColor = (role: string) => {
     const colors: Record<string, string> = {
@@ -49,6 +50,28 @@ export const Header = () => {
             MVP v1.0
           </Badge>
         </div>
+        
+        <nav className="flex items-center gap-4">
+          <Button variant="ghost" asChild>
+            <Link to="/" className="text-sm font-medium">
+              Dashboard
+            </Link>
+          </Button>
+          {hasAnyRole(['admin', 'planner']) && (
+            <Button variant="ghost" asChild>
+              <Link to="/machines" className="text-sm font-medium">
+                Maschinen
+              </Link>
+            </Button>
+          )}
+          {hasAnyRole(['admin']) && (
+            <Button variant="ghost" asChild>
+              <Link to="/calendars" className="text-sm font-medium">
+                Kalender
+              </Link>
+            </Button>
+          )}
+        </nav>
         
         <div className="flex items-center gap-4">
           {profile && (

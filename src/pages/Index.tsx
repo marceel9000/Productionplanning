@@ -92,7 +92,7 @@ const Index = () => {
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-sm">Feature 2: Stammdaten</span>
-                  <Badge variant="outline">Geplant</Badge>
+                  <Badge>Abgeschlossen</Badge>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-sm">Feature 3: Setup-Gruppen</span>
