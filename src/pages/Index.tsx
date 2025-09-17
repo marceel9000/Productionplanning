@@ -1,22 +1,30 @@
-import { ProtectedRoute } from "@/components/auth/ProtectedRoute";
 import { Header } from "@/components/layout/Header";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Calendar, Factory, Settings, TrendingUp, Users, AlertTriangle } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Calendar, Factory, Settings, TrendingUp, Users, AlertTriangle, Workflow } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Index = () => {
   return (
-    <ProtectedRoute>
-      <div className="min-h-screen bg-background">
-        <Header />
-        
-        <main className="container mx-auto p-6 space-y-6">
+    <div className="min-h-screen bg-background">
+      <Header />
+      
+      <main className="container mx-auto p-6 space-y-6">
+        <div className="flex items-center justify-between">
           <div className="space-y-2">
             <h2 className="text-3xl font-bold">Dashboard</h2>
             <p className="text-muted-foreground">
               Überblick über Ihre Produktionsplanung im Verpackungsdruck
             </p>
           </div>
+          <Link to="/planning">
+            <Button size="lg" className="flex items-center gap-2">
+              <Workflow className="h-5 w-5" />
+              Zur Planungstafel
+            </Button>
+          </Link>
+        </div>
           
           {/* Quick Stats */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -95,11 +103,15 @@ const Index = () => {
                   <Badge>Abgeschlossen</Badge>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-sm">Feature 3: Setup-Gruppen</span>
+                  <span className="text-sm">Feature 3: Planungstafel MVP</span>
+                  <Badge>Neu implementiert</Badge>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-sm">Feature 4: Setup-Gruppen</span>
                   <Badge variant="outline">Geplant</Badge>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-sm">Feature 4: ERP-Import</span>
+                  <span className="text-sm">Feature 5: ERP-Import</span>
                   <Badge variant="outline">Geplant</Badge>
                 </div>
               </CardContent>
@@ -155,8 +167,7 @@ const Index = () => {
           </Card>
         </main>
       </div>
-    </ProtectedRoute>
-  );
-};
+    );
+  };
 
 export default Index;
