@@ -195,9 +195,9 @@ export const AuthForm = ({ onSuccess }: AuthFormProps) => {
           </Tabs>
           
           <div className="mt-6 text-center text-sm text-muted-foreground">
-            <p>Demo-Zugänge:</p>
-            <p>admin@demo.com / planner@demo.com</p>
-            <p>Passwort: demo123</p>
+            <p>Erste Schritte:</p>
+            <p>Registrieren Sie sich zuerst über den "Registrieren"-Tab</p>
+            <p>Nach der Registrierung können Sie sich anmelden</p>
           </div>
         </CardContent>
       </Card>
